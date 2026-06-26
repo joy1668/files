@@ -206,6 +206,23 @@ a {
     gap: 10px;
 }
 
+.backup-panel {
+    display: grid;
+    grid-template-columns: minmax(220px, .8fr) minmax(320px, 1.2fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.backup-summary,
+.backup-options {
+    min-width: 0;
+}
+
+.backup-options {
+    display: grid;
+    gap: 10px;
+}
+
 .theme-dashboard-meta {
     display: flex;
     flex-wrap: wrap;
@@ -580,7 +597,8 @@ textarea {
     }
 
     .version-panel,
-    .dashboard-theme-panel {
+    .dashboard-theme-panel,
+    .backup-panel {
         grid-template-columns: 1fr;
         gap: 12px;
     }
