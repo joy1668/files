@@ -2,35 +2,58 @@
     box-sizing: border-box;
 }
 
+:root {
+    --admin-bg: #f5f7fa;
+    --admin-surface: #fff;
+    --admin-surface-soft: #f8fafc;
+    --admin-border: #e5e7eb;
+    --admin-text: #1f2937;
+    --admin-muted: #6b7280;
+    --admin-primary: #2f9e6d;
+    --admin-primary-hover: #25845b;
+    --admin-danger: #dc2626;
+    --admin-side: #111827;
+    --admin-side-soft: #1f2937;
+    --admin-radius: 8px;
+    --admin-shadow: 0 10px 28px rgba(15, 23, 42, .08);
+}
+
 html {
     -webkit-text-size-adjust: 100%;
 }
 
 body {
     margin: 0;
-    background: #f3f4f5;
-    color: #333;
-    font: 14px/1.5 "Microsoft YaHei", Arial, sans-serif;
+    background: var(--admin-bg);
+    color: var(--admin-text);
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
 }
 
 a {
-    color: #2f7dc0;
+    color: #2563eb;
     text-decoration: none;
+}
+
+a:hover {
+    color: #1d4ed8;
 }
 
 .admin-side {
     position: fixed;
     inset: 0 auto 0 0;
-    width: 210px;
-    background: #212220;
+    width: 232px;
+    background: var(--admin-side);
     color: #fff;
-    padding: 20px;
+    padding: 18px 14px;
     overflow-y: auto;
+    border-right: 1px solid rgba(255, 255, 255, .08);
 }
 
 .admin-side h2 {
-    font-size: 22px;
-    margin: 0 0 20px;
+    font-size: 19px;
+    margin: 0 0 18px;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
 }
 
 .admin-side-head {
@@ -43,38 +66,44 @@ a {
 
 .admin-nav a {
     display: block;
-    color: #ddd;
-    padding: 10px;
-    border-radius: 4px;
+    color: #d1d5db;
+    padding: 10px 12px;
+    border-radius: 7px;
     white-space: nowrap;
+    transition: background .16s ease, color .16s ease;
 }
 
 .admin-nav a:hover {
-    background: #333;
-    color: #6bc30d;
+    background: var(--admin-side-soft);
+    color: #fff;
 }
 
 .admin-main {
-    margin-left: 230px;
-    padding: 24px;
-    max-width: 1180px;
+    margin-left: 232px;
+    padding: 28px;
+    max-width: 1280px;
+    min-width: 0;
 }
 
 .admin-main h1 {
-    margin: 0 0 18px;
+    margin: 0 0 20px;
     line-height: 1.25;
+    font-size: 26px;
+    letter-spacing: 0;
 }
 
 .admin-notice {
-    background: #f4fff0;
-    border-left: 4px solid #6bc30d;
-    padding: 12px;
-    margin: 12px 0;
+    background: #ecfdf5;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid var(--admin-primary);
+    border-radius: var(--admin-radius);
+    padding: 12px 14px;
+    margin: 12px 0 18px;
     word-break: break-word;
 }
 
 .admin-help {
-    color: #777;
+    color: var(--admin-muted);
     margin: 6px 0;
     word-break: break-word;
 }
@@ -86,8 +115,11 @@ a {
 }
 
 .cards div {
-    background: #fff;
-    padding: 20px;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    box-shadow: var(--admin-shadow);
+    padding: 18px;
     min-width: 0;
     word-break: break-word;
 }
@@ -95,13 +127,16 @@ a {
 .cards strong {
     display: block;
     font-size: 32px;
-    color: #6bc30d;
+    color: var(--admin-primary);
     margin-top: 8px;
     line-height: 1.1;
 }
 
 .dashboard-panel {
-    background: #fff;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    box-shadow: var(--admin-shadow);
     margin-top: 18px;
     padding: 18px;
 }
@@ -227,13 +262,13 @@ a {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    color: #666;
+    color: var(--admin-muted);
 }
 
 .theme-dashboard-meta span {
-    background: #f3f5f2;
-    border: 1px solid #e7eae4;
-    border-radius: 3px;
+    background: var(--admin-surface-soft);
+    border: 1px solid var(--admin-border);
+    border-radius: 6px;
     padding: 4px 8px;
 }
 
@@ -251,12 +286,15 @@ a {
 table {
     width: 100%;
     border-collapse: collapse;
-    background: #fff;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    overflow: hidden;
 }
 
 th,
 td {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--admin-border);
     padding: 10px;
     text-align: left;
     vertical-align: top;
@@ -264,37 +302,71 @@ td {
 }
 
 th {
-    background: #fafafa;
+    background: var(--admin-surface-soft);
     white-space: nowrap;
+    color: #374151;
+    font-weight: 600;
 }
 
 .btn,
 button {
     display: inline-block;
-    background: #6bc30d;
+    background: var(--admin-primary);
     color: #fff;
     border: 0;
-    padding: 8px 14px;
-    border-radius: 3px;
+    padding: 9px 14px;
+    border-radius: 7px;
     cursor: pointer;
-    min-height: 38px;
+    min-height: 40px;
     line-height: 1.3;
+    touch-action: manipulation;
+    transition: background .16s ease, transform .16s ease, opacity .16s ease;
+}
+
+.btn:hover,
+button:hover {
+    background: var(--admin-primary-hover);
+    color: #fff;
+}
+
+.btn:active,
+button:active {
+    transform: translateY(1px);
+}
+
+.btn.secondary,
+button.secondary,
+.secondary {
+    background: #475569;
 }
 
 button[name="op"][value="delete"],
 .inline button {
-    background: #e24d46;
+    background: var(--admin-danger);
 }
 
 input,
 textarea,
 select {
-    border: 1px solid #dcdcdc;
-    padding: 9px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    padding: 10px;
     width: 100%;
     max-width: 100%;
     background: #fff;
+    color: var(--admin-text);
     font: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus-visible,
+.btn:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(47, 158, 109, .25);
+    outline-offset: 2px;
+    border-color: var(--admin-primary);
 }
 
 input[type="checkbox"],
@@ -317,7 +389,10 @@ textarea {
 }
 
 .admin-form {
-    background: #fff;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    box-shadow: var(--admin-shadow);
     padding: 18px;
     display: grid;
     gap: 12px;
@@ -330,13 +405,16 @@ textarea {
 }
 
 .admin-form fieldset {
-    border: 1px solid #ddd;
-    padding: 10px;
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    padding: 14px;
     min-width: 0;
 }
 
 .admin-form legend {
     padding: 0 6px;
+    color: #374151;
+    font-weight: 600;
 }
 
 .check {
@@ -352,7 +430,10 @@ textarea {
 }
 
 .term-form {
-    background: #fff;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    box-shadow: var(--admin-shadow);
     padding: 12px;
     margin-bottom: 14px;
     display: grid;
@@ -381,7 +462,10 @@ textarea {
 .admin-login {
     width: min(400px, calc(100% - 32px));
     margin: 12vh auto;
-    background: #fff;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    box-shadow: var(--admin-shadow);
     padding: 26px;
     display: grid;
     gap: 12px;
@@ -389,18 +473,6 @@ textarea {
 
 .admin-login h1 {
     margin: 0;
-}
-
-.color-field {
-    display: grid;
-    grid-template-columns: 64px minmax(0, 1fr);
-    gap: 8px;
-    align-items: center;
-}
-
-.color-field input[type="color"] {
-    height: 40px;
-    padding: 2px;
 }
 
 .password-field {
@@ -428,7 +500,8 @@ textarea {
 
 .rich-paste {
     min-height: 220px;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #d1d5db;
+    border-radius: var(--admin-radius);
     background: #fff;
     padding: 12px;
     overflow: auto;
@@ -464,8 +537,9 @@ textarea {
     align-items: center;
     margin-top: 8px;
     padding: 10px;
-    background: #f7f8f6;
-    border: 1px solid #e6e8e4;
+    background: var(--admin-surface-soft);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
 }
 
 .webdav-restore-panel.is-open {
@@ -480,8 +554,8 @@ textarea {
 
 @media (max-width: 800px) {
     body {
-        background: #fff;
-        font-size: 15px;
+        background: var(--admin-bg);
+        font-size: 16px;
     }
 
     .admin-side {
@@ -491,7 +565,7 @@ textarea {
         width: 100%;
         padding: 0;
         overflow: visible;
-        box-shadow: 0 1px 10px rgba(0, 0, 0, .12);
+        box-shadow: 0 8px 24px rgba(15, 23, 42, .18);
     }
 
     .admin-side-head {
@@ -511,12 +585,12 @@ textarea {
 
     .admin-nav-toggle {
         display: inline-flex;
-        width: 40px;
-        height: 36px;
-        min-height: 36px;
+        width: 44px;
+        height: 44px;
+        min-height: 44px;
         padding: 0;
-        border-radius: 4px;
-        background: #2b2c2a;
+        border-radius: 7px;
+        background: var(--admin-side-soft);
         align-items: center;
         justify-content: center;
         flex-direction: column;
@@ -558,8 +632,8 @@ textarea {
     }
 
     .admin-nav a {
-        padding: 10px 12px;
-        background: #2b2c2a;
+        padding: 11px 12px;
+        background: var(--admin-side-soft);
         text-align: center;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -593,7 +667,6 @@ textarea {
     .dashboard-panel {
         margin-top: 12px;
         padding: 14px;
-        border: 1px solid #eee;
     }
 
     .version-panel,
@@ -629,7 +702,6 @@ textarea {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         white-space: nowrap;
-        border: 1px solid #eee;
     }
 
     tbody,
@@ -652,13 +724,11 @@ textarea {
     .admin-form {
         padding: 14px;
         gap: 11px;
-        border: 1px solid #eee;
     }
 
     .term-form {
         grid-template-columns: 1fr;
         padding: 12px;
-        border: 1px solid #eee;
     }
 
     .link-add-form {
@@ -682,7 +752,7 @@ textarea {
     .inline button,
     .btn,
     button {
-        min-height: 40px;
+        min-height: 44px;
     }
 
     .webdav-table {
@@ -705,8 +775,9 @@ textarea {
 
     .webdav-table tr {
         display: block;
-        background: #fff;
-        border: 1px solid #eee;
+        background: var(--admin-surface);
+        border: 1px solid var(--admin-border);
+        border-radius: var(--admin-radius);
         margin: 0 0 12px;
         padding: 8px 10px;
     }
@@ -776,10 +847,6 @@ textarea {
 
     .admin-form {
         padding: 12px;
-    }
-
-    .color-field {
-        grid-template-columns: 52px minmax(0, 1fr);
     }
 
     .check {
