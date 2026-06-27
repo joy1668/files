@@ -498,7 +498,8 @@ textarea {
     min-width: 180px;
 }
 
-.admin-login {
+.admin-login,
+.access-gate {
     width: min(440px, calc(100% - 32px));
     margin: 10vh auto;
     background: linear-gradient(180deg, #08111f 0%, #050814 100%);
@@ -512,7 +513,8 @@ textarea {
     overflow: hidden;
 }
 
-body:has(.admin-login) {
+body:has(.admin-login),
+.access-gate-page {
     min-height: 100vh;
     background:
         radial-gradient(circle at 20% 20%, rgba(34, 211, 238, .16), transparent 32%),
@@ -520,14 +522,16 @@ body:has(.admin-login) {
         linear-gradient(135deg, #020617 0%, #07111f 52%, #020617 100%);
 }
 
-.admin-login h1 {
+.admin-login h1,
+.access-gate h1 {
     margin: 0;
     color: #f8fbff;
     font-size: 28px;
     letter-spacing: 0;
 }
 
-.admin-login .terminal-bar {
+.admin-login .terminal-bar,
+.access-gate .terminal-bar {
     display: flex;
     align-items: center;
     gap: 7px;
@@ -539,22 +543,26 @@ body:has(.admin-login) {
     font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-.admin-login .terminal-bar span {
+.admin-login .terminal-bar span,
+.access-gate .terminal-bar span {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background: #ef4444;
 }
 
-.admin-login .terminal-bar span:nth-child(2) {
+.admin-login .terminal-bar span:nth-child(2),
+.access-gate .terminal-bar span:nth-child(2) {
     background: #f59e0b;
 }
 
-.admin-login .terminal-bar span:nth-child(3) {
+.admin-login .terminal-bar span:nth-child(3),
+.access-gate .terminal-bar span:nth-child(3) {
     background: #22c55e;
 }
 
-.admin-login .terminal-bar strong {
+.admin-login .terminal-bar strong,
+.access-gate .terminal-bar strong {
     margin-left: 6px;
     font-weight: 600;
     overflow: hidden;
@@ -562,7 +570,8 @@ body:has(.admin-login) {
     white-space: nowrap;
 }
 
-.admin-login .login-kicker {
+.admin-login .login-kicker,
+.access-gate .login-kicker {
     margin: 0;
     color: #34d399;
     font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -573,30 +582,35 @@ body:has(.admin-login) {
     color: #93a4b8;
 }
 
-.admin-login label {
+.admin-login label,
+.access-gate label {
     display: grid;
     gap: 6px;
     color: #b7c7db;
     font-weight: 600;
 }
 
-.admin-login input {
+.admin-login input,
+.access-gate input {
     border-color: #1f3b57;
     background: #020617;
     color: #f8fbff;
 }
 
-.admin-login input::placeholder {
+.admin-login input::placeholder,
+.access-gate input::placeholder {
     color: #64748b;
 }
 
-.admin-login button {
+.admin-login button,
+.access-gate button {
     background: linear-gradient(135deg, #22d3ee, #34d399);
     color: #020617;
     font-weight: 800;
 }
 
-.admin-login .admin-notice {
+.admin-login .admin-notice,
+.access-gate .admin-notice {
     background: rgba(34, 211, 238, .08);
     border-color: rgba(34, 211, 238, .35);
     border-left-color: #22d3ee;
