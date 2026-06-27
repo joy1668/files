@@ -3,7 +3,7 @@
 }
 
 :root {
-    --admin-bg: #f5f7fa;
+    --admin-bg: #eef2f7;
     --admin-surface: #fff;
     --admin-surface-soft: #f8fafc;
     --admin-border: #e5e7eb;
@@ -15,7 +15,7 @@
     --admin-side: #111827;
     --admin-side-soft: #1f2937;
     --admin-radius: 8px;
-    --admin-shadow: 0 10px 28px rgba(15, 23, 42, .08);
+    --admin-shadow: 0 12px 30px rgba(15, 23, 42, .08);
 }
 
 html {
@@ -42,7 +42,7 @@ a:hover {
     position: fixed;
     inset: 0 auto 0 0;
     width: 232px;
-    background: var(--admin-side);
+    background: linear-gradient(180deg, #0f172a 0%, #111827 48%, #0b1220 100%);
     color: #fff;
     padding: 18px 14px;
     overflow-y: auto;
@@ -73,9 +73,15 @@ a:hover {
     transition: background .16s ease, color .16s ease;
 }
 
-.admin-nav a:hover {
+.admin-nav a:hover,
+.admin-nav a.is-active {
     background: var(--admin-side-soft);
     color: #fff;
+}
+
+.admin-nav a.is-active {
+    background: linear-gradient(135deg, var(--admin-primary), #2563eb);
+    box-shadow: 0 10px 22px rgba(37, 99, 235, .22);
 }
 
 .admin-main {
@@ -85,11 +91,35 @@ a:hover {
     min-width: 0;
 }
 
-.admin-main h1 {
+.admin-page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+    padding: 18px 20px;
+    background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    box-shadow: var(--admin-shadow);
+}
+
+.admin-page-head span {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--admin-muted);
+    font-size: 13px;
+}
+
+.admin-page-head h1 {
     margin: 0 0 20px;
     line-height: 1.25;
     font-size: 26px;
     letter-spacing: 0;
+}
+
+.admin-page-head h1 {
+    margin: 0;
 }
 
 .admin-notice {
@@ -112,6 +142,7 @@ a:hover {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
+    margin-bottom: 18px;
 }
 
 .cards div {
@@ -290,6 +321,7 @@ table {
     border: 1px solid var(--admin-border);
     border-radius: var(--admin-radius);
     overflow: hidden;
+    box-shadow: var(--admin-shadow);
 }
 
 th,
@@ -308,6 +340,10 @@ th {
     font-weight: 600;
 }
 
+tr:hover td {
+    background: #fafafa;
+}
+
 .btn,
 button {
     display: inline-block;
@@ -321,6 +357,7 @@ button {
     line-height: 1.3;
     touch-action: manipulation;
     transition: background .16s ease, transform .16s ease, opacity .16s ease;
+    box-shadow: 0 8px 18px rgba(47, 158, 109, .18);
 }
 
 .btn:hover,
@@ -338,11 +375,13 @@ button:active {
 button.secondary,
 .secondary {
     background: #475569;
+    box-shadow: 0 8px 18px rgba(71, 85, 105, .16);
 }
 
 button[name="op"][value="delete"],
 .inline button {
     background: var(--admin-danger);
+    box-shadow: 0 8px 18px rgba(220, 38, 38, .14);
 }
 
 input,
@@ -649,6 +688,23 @@ textarea {
     .admin-main h1 {
         font-size: 22px;
         margin-bottom: 14px;
+    }
+
+    .admin-page-head {
+        display: grid;
+        gap: 12px;
+        padding: 14px;
+        margin-bottom: 14px;
+    }
+
+    .admin-page-head h1 {
+        font-size: 22px;
+        margin: 0;
+    }
+
+    .admin-page-head .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .cards {
